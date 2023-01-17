@@ -7,7 +7,6 @@ const appointmentSchema = new Schema({
   name: String,
   date: Date,
   time: String,
-  _id: String,
   service: String,
   flexible: Boolean,
   phoneNumber: String,

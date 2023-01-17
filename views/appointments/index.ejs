@@ -16,7 +16,7 @@
       <label for="date-select">Date:</label>
       <input type="date" name="date" value="<%= appointments.date %>" id="date-input">
       <label for="time-select">Time:</label>
-        <select name="time" id="time-select">
+        <select name="time" id="time-select" value="<%= appointments.time %>">
           <option value="0800">8:00am</option>
           <option value="0900">9:00am</option>
           <option value="1000">10:00am</option>
@@ -46,8 +46,8 @@
 	<ul>
   <% appointments.forEach(appointment => { %>
     <li>
-      🌮 
-      <a href="/appointments/<%= appointment._id %>"><%= appointment.name %></a> is <%= appointment.flexible ? 'yes' : 'no' %>
+      
+      <a href="/appointments/<%= appointment._id %>"><%= appointment.name %></a> is <%= appointment.flexible ? 'flexible' : 'not flexible' %>
     </li>
   <% }) %>
   </ul>

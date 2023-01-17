@@ -5,8 +5,12 @@ import { isLoggedIn } from '../middleware/middleware.js'
 const router = Router()
 
 router.get('/', appointmentsCtrl.index)
-router.post('/', isLoggedIn, appointmentsCtrl.create)
 router.get('/:id', appointmentsCtrl.show)
+router.get('/new', appointmentsCtrl.new)
+router.post('/', isLoggedIn, appointmentsCtrl.create)
+router.patch('/:id/flip-flexible', isLoggedIn, appointmentsCtrl.flipFlexible)
+router.get('/:id/edit', isLoggedIn, appointmentsCtrl.edit)
+
 export {
   router
 }

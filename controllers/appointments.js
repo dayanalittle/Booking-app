@@ -1,5 +1,14 @@
 import { Appointment } from '../models/appointment.js'
 
+
+
+function newAppointment(req, res) {
+  res.render("appointments/new", {
+    title: "Book",
+  })
+}
+
+
 function index(req, res) {
   Appointment.find({})
   .then(appointments => {
@@ -13,6 +22,8 @@ function index(req, res) {
     res.redirect("/")
   })
 }
+
+
 
 function create(req, res) {
   req.body.owner = req.user.profile._id
@@ -42,7 +53,34 @@ function show(req, res) {
   })
 }
 
+function flipFlexible(req, res) {
+  Appointment.findById(req.params.id)
+  .then(appointment => {
+    appointment.flexible = !appointment.flexible
+    appointment.save()
+    .then(()=> {
+      res.redirect(`/appointments/${appointment._id}`)
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/appointments')
+  })
+}
 
+function edit(req, res) {
+  Appointment.findById(req.params.id)
+  .then(appointment => {
+    res.render('appointments/edit', {
+      appointment,
+      title: "edit"
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/appointments')
+  })
+}
 
 
 
@@ -51,7 +89,10 @@ function show(req, res) {
 
 
 export {
+  newAppointment as new,
   index,
   create,
   show,
+  flipFlexible,
+  edit,
 }

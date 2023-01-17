@@ -4,7 +4,22 @@
 <section>
 	<p>View all Appointments <%= appointment.owner.name %>...</p>
   <h1><%= appointment.name %> ....</h1>
-  <h2>This appointment is <%= appointment.flexible ? 'flexible' : 'not flexible' %></h2>
+  <h2>This appointment is <%= appointment.flexible ? 'Is flexible' : 'Not flexible' %></h2>
+  <% if (user) { %>
+    <form 
+      action="/appointments/<%= appointment._id %>/flip-flexible?_method=PATCH" 
+      method="POST"
+    >
+      <button class="btn" type="submit">
+        Make Appointment <%= appointment.flexible ? 'Is Flexible' : 'Not Flexible' %>
+      </button>
+    </form>
+  <% } %>
+  <% if (appointment.owner.equals(user?.profile._id)) { %>
+    <a href="/appointments/<%= appointment._id %>/edit">
+      <button class="btn">Reschedule</button>
+    </a>
+  <% } %>
 </section>
 
 <%- include('../partials/footer') %>
