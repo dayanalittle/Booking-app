@@ -1,0 +1,10 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+	<p>View all Appointments <%= appointment.owner.name %>...</p>
+  <h1><%= appointment.name %> ....</h1>
+  <h2>This appointment is <%= appointment.flexible ? 'flexible' : 'not flexible' %></h2>
+</section>
+
+<%- include('../partials/footer') %>
