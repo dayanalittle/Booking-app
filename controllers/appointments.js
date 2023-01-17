@@ -81,7 +81,24 @@ function edit(req, res) {
     res.redirect('/appointments')
   })
 }
-
+function update(req, res) {
+  Appointment.findById(req.params.id)
+  .then(appointment => {
+    if (appointment.owner.equals(req.user.profile._id)) {
+      req.body.flexible = !!req.body.flexible
+      taco.updateOne(req.body)
+      .then(()=> {
+        res.redirect(`/appointments/${appointment._id}`)
+      })
+    } else {
+      throw new Error('🚫 Not authorized 🚫')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/appointments`)
+  })
+}
 
 
 
@@ -95,4 +112,5 @@ export {
   show,
   flipFlexible,
   edit,
+  update,
 }

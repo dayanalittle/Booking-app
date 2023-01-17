@@ -10,6 +10,7 @@ router.get('/new', appointmentsCtrl.new)
 router.post('/', isLoggedIn, appointmentsCtrl.create)
 router.patch('/:id/flip-flexible', isLoggedIn, appointmentsCtrl.flipFlexible)
 router.get('/:id/edit', isLoggedIn, appointmentsCtrl.edit)
+router.put('/:id', isLoggedIn, appointmentsCtrl.update)
 
 export {
   router
