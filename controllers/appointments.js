@@ -1,13 +1,10 @@
 import { Appointment } from '../models/appointment.js'
 
-
-
 function newAppointment(req, res) {
   res.render("appointments/new", {
     title: "",
   })
 }
-
 
 function index(req, res) {
   Appointment.find({})
@@ -22,8 +19,6 @@ function index(req, res) {
     res.redirect("/")
   })
 }
-
-
 
 function create(req, res) {
   req.body.owner = req.user.profile._id

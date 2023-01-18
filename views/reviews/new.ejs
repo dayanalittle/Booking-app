@@ -5,7 +5,7 @@
     </section>
     <h2>Reviews</h2>
     <% if (user) { %>
-      <form action="/review" method="POST">
+      <form action="/reviews" method="POST">
         <label>
           Author:
           <input type="text" name="name" autocomplete="off" value="<%= user.profile.name %>">

@@ -6,27 +6,35 @@ function newReview(req, res) {
   })
 }
 
-function createReview(req, res) {
-  Review.findById(req.params.id)
-  .then(review => {
-    reviews.push(req.body)
-    review.save()
-    .then(() => {
-      res.redirect(`/review/new`)
-    })
-    .catch(err => {
-      console.log(err)
-      res.redirect('/review')
+function index(req, res) {
+  Review.find({})
+  .then(reviews => {
+    res.render('reviews/index', {
+      appointments,
+      title: "Review"
     })
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/')
+    res.redirect("/")
   })
 }
 
+function create(req, res) {
+  req.body.owner = req.user.profile._id
+  Review.create(req.body)
+  .then(review => {
+    res.redirect('/reviews')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/reviews')
+  })
+}
+
+
 export {
 newReview as new,
-createReview,
-  
+index,
+create,
 }
