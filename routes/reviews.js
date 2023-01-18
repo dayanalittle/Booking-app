@@ -5,7 +5,7 @@ import * as reviewsCtrl from '../controllers/reviews.js'
 const router = Router()
 
 router.get('/new', reviewsCtrl.new)
-// router.post('/:id/reviews', reviewsCtrl.createReview)
+router.post('/:id/reviews', reviewsCtrl.createReview)
 
 
 export {

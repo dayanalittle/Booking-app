@@ -6,7 +6,27 @@ function newReview(req, res) {
   })
 }
 
+function createReview(req, res) {
+  Review.findById(req.params.id)
+  .then(review => {
+    reviews.push(req.body)
+    review.save()
+    .then(() => {
+      res.redirect(`/review/new`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/review')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 export {
 newReview as new,
+createReview,
   
 }
