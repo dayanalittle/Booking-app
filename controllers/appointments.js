@@ -4,7 +4,7 @@ import { Appointment } from '../models/appointment.js'
 
 function newAppointment(req, res) {
   res.render("appointments/new", {
-    title: "Book",
+    title: "",
   })
 }
 
@@ -119,27 +119,6 @@ function deleteAppointment(req, res) {
   })
 }
 
-function createReview(req, res) {
-  Appointment.findById(req.params.id)
-  .then(appointment => {
-    appointment.reviews.push(req.body)
-    appointment.save()
-    .then(() => {
-      res.redirect(`/appointments/${appointment._id}`)
-    })
-    .catch(err => {
-      console.log(err)
-      res.redirect('/')
-    })
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/')
-  })
-}
-
-
-
 
 export {
   newAppointment as new,
@@ -150,5 +129,4 @@ export {
   edit,
   update,
   deleteAppointment as delete,
-  createReview,
 }
