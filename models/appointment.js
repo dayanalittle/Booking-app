@@ -11,7 +11,7 @@ const appointmentSchema = new Schema({
   flexible: {type: Boolean, required: true},
   phoneNumber: {type: String, required: true},
   owner: {type: Schema.Types.ObjectId, ref: "Profile"},
-  // comments: [commentSchema]
+ 
 }, {
   timestamps: true
 })

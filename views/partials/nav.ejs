@@ -4,10 +4,12 @@
 </head>
 <body>
   <nav>
-    <a href="/Appointments">📅</a>
-    <a href="/profiles">👤</a>
+    <a href="/Appointments"><button class="btn">BOOK</button></a>
+    <a href="/Appointments"><button class="btn">MY PROFILE</button></a>
+    <a href="/reviews"><button class="btn">REVIEWS</button></a>
+
     <% if (user) { %>
-      <a href="/auth/logout">❌</a>
+      <a href="/auth/logout"><button class="btn">LOGOUT</button></a>
   
     <% } else { %>
       <div 
@@ -17,7 +19,7 @@
         data-auto_prompt="false"
       ></div>
       <div 
-        class="g_id_signin right"
+        class="g_id_signin left"
         data-type="standard"
         data-size="large"
         data-theme="outline"

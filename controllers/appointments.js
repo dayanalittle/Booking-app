@@ -119,6 +119,25 @@ function deleteAppointment(req, res) {
   })
 }
 
+function createReview(req, res) {
+  Appointment.findById(req.params.id)
+  .then(appointment => {
+    appointment.reviews.push(req.body)
+    appointment.save()
+    .then(() => {
+      res.redirect(`/appointments/${appointment._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
+  })
+}
+
 
 
 
@@ -131,4 +150,5 @@ export {
   edit,
   update,
   deleteAppointment as delete,
+  createReview,
 }
