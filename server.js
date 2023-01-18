@@ -22,6 +22,7 @@ import'./config/passport.js'
 import { router as indexRouter } from './routes/index.js'
 import { router as authRouter } from './routes/auth.js'
 import { router as appointmentsRouter } from './routes/appointments.js'
+
 // create the express app
 const app = express()
 
@@ -66,6 +67,7 @@ app.use(passDataToView)
 app.use('/', indexRouter)
 app.use('/auth', authRouter)
 app.use('/appointments', appointmentsRouter)
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

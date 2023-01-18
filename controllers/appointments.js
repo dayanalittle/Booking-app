@@ -43,20 +43,21 @@ function show(req, res) {
   .populate("owner")
   .then(appointment => {
     res.render('appointments/show', {
-      taco,
+      appointment,
       title: "View Appointments"
     })
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/appointnments')
+    res.redirect('/appointments')
   })
 }
 
 function flipFlexible(req, res) {
   Appointment.findById(req.params.id)
-  .then(appointment => {
-    appointment.flexible = !appointment.flexible
+  .then(appointment => { 
+    if (appointment.owner.equals(req.user.profile._id))
+    appointment.flexible = !!appointment.flexible
     appointment.save()
     .then(()=> {
       res.redirect(`/appointments/${appointment._id}`)
@@ -86,7 +87,7 @@ function update(req, res) {
   .then(appointment => {
     if (appointment.owner.equals(req.user.profile._id)) {
       req.body.flexible = !!req.body.flexible
-      taco.updateOne(req.body)
+      appointment.updateOne(req.body)
       .then(()=> {
         res.redirect(`/appointments/${appointment._id}`)
       })
@@ -100,7 +101,23 @@ function update(req, res) {
   })
 }
 
-
+function deleteAppointment(req, res) {
+  Appointment.findById(req.params.id)
+  .then(appointment => {
+    if (appointment.owner.equals(req.user.profile._id)) {
+      appointment.delete()
+      .then(() => {
+        res.redirect('/appointments')
+      })
+    } else {
+      throw new Error ('🚫 Not authorized 🚫')
+    }   
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/appointments')
+  })
+}
 
 
 
@@ -113,4 +130,5 @@ export {
   flipFlexible,
   edit,
   update,
+  deleteAppointment as delete,
 }
