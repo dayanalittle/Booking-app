@@ -8,6 +8,7 @@ function newAppointment(req, res) {
 
 function index(req, res) {
   Appointment.find({})
+  .sort("date")
   .then(appointments => {
     res.render('appointments/index', {
       appointments,

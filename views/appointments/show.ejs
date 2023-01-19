@@ -1,37 +1,40 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/appointments/show.css" />
-<%- include('../partials/nav') %>
+  <link rel="stylesheet" href="/stylesheets/appointments/show.css" />
+  <%- include('../partials/nav') %>
 
-<section>
-  <ul>
+    <section>
+      <ul>
 
-    <li>Name: <%= appointment.owner.name %></li>
-    <li>Location: <a href="https://www.google.com/maps/dir/39.9835136,-75.1632384/the+darcy+hotel/@39.4357474,-77.2097399,8z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x89b7b7c044c1f34d:0xc182fc169589c911!2m2!1d-77.0355924!2d38.9077785">The Darcy Hotel, DC</a></li>
-    <li>Date/Time: <%= appointment.date %> @ <%= appointment.time %></li>
-    <li>Services: <%= appointment.service %></li>
-    <li>This appointment is <%= appointment.flexible ? 'flexible' : 'not flexible' %>.</li>
-    <li>Contact DayTheBarber:<a href="tel:2672657979">267-265-7979</a></li>
-      <% if (user) { %>
-        <form 
-          action="/appointments/<%= appointment._id %>/flip-flexible?_method=PATCH" 
-          method="POST"
-        >
-  </ul>
-      <button class="btn" type="submit">
-        Make appointment <%= appointment.flexible ? 'flexible' : 'not flexible' %>
-      </button>
-    </form>
-  <% } %>
-  <% if (appointment.owner.equals(user?.profile._id)) { %>
-    <a href="/appointments/<%= appointment._id %>/edit">
-      <button class="btn">Reschedule</button>
-    </a>
-    <form action="/appointments/<%= appointment._id %>?_method=DELETE" method="POST">
-      <button class="btn" type="submit">Cancel</button>
-    </form>
-    
-  <% } %>
-</section>
+        <li>Name: <%= appointment.owner.name %>
+        </li>
+        <li>Location: <a
+            href="https://www.google.com/maps/dir/39.9835136,-75.1632384/the+darcy+hotel/@39.4357474,-77.2097399,8z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x89b7b7c044c1f34d:0xc182fc169589c911!2m2!1d-77.0355924!2d38.9077785">The
+            Darcy Hotel, DC</a></li>
+        <li>Date/Time: <%= appointment.date %> @ <%= appointment.time %>
+        </li>
+        <li>Services: <%= appointment.service %>
+        </li>
+        <li>This appointment is <%= appointment.flexible ? 'flexible' : 'not flexible' %>.</li>
+        <li>Contact DayTheBarber:<a href="tel:2672657979">267-265-7979</a></li>
+        <% if (user) { %>
+          <form action="/appointments/<%= appointment._id %>/flip-flexible?_method=PATCH" method="POST">
+      </ul>
+
+      </form>
+      <% } %>
+        <% if (appointment.owner.equals(user?.profile._id)) { %>
+          <button class="btn" type="submit">
+            Make appointment <%= appointment.flexible ? 'flexible' : 'not flexible' %>
+          </button>
+          <a href="/appointments/<%= appointment._id %>/edit">
+            <button class="btn">Reschedule</button>
+          </a>
+          <form action="/appointments/<%= appointment._id %>?_method=DELETE" method="POST">
+            <button class="btn" type="submit">Cancel</button>
+          </form>
+
+          <% } %>
+    </section>
 
 
-<%- include('../partials/footer') %>
+    <%- include('../partials/footer') %>

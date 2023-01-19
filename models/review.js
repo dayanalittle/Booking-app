@@ -4,6 +4,7 @@ const Schema = mongoose.Schema
 
 
 const reviewSchema = new Schema({
+  author: String,
   content: String,
   rating: {type: Number, min: 1, max: 5, default: 5}
 }, {

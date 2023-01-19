@@ -1,0 +1,52 @@
+<%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/style.css" />
+<%- include('../partials/nav') %>
+
+ <h1>Reviews</h1>
+  <form 
+    id="add-review-form"action="/reviews"method="POST">
+  <label>
+    Author:
+    <input type="text" name="author" autocomplete="off" placeholder="Anonoymous">
+  </label>
+  <label>
+    Author:
+    <input type="text" name="author" autocomplete="off" placeholder="Anonoymous">
+  </label>
+  <label for="service-select">Service:</label>
+          <select name="service" id="service-select">
+            <option value="Men's Haircut">Men's Haircut</option>
+            <option value="Women's Haircut">Women's Haircut</option>
+            <option value="Kid's Haircut">Kid's Haircut</option>
+            <option value="Beard Maintenance">Beard Maintenance</option>
+            <option value="Nose/Ear Hair Removal(Wax)"> Nose/Ear Hair Removal</option>
+          </select>
+    <label for="content-textarea">Review:</label>
+    <textarea name="content" id="content-textarea"></textarea>
+    <label for="rating-select">Rating:</label>
+    <select name="rating" id="rating-select">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5" selected>5</option>
+    </select>
+    <button type="submit">Add Review</button>
+  </form>
+
+  <h2> Unavailable Appointments:</h2>
+  <ul>
+    <% appointments.forEach(appointment=> { %>
+      <li>
+
+        <a href="/appointments/<%= appointment._id %>">
+          <%= appointment.name %>
+        </a>
+        has an appointment on <%= appointment.date %> @ <%= appointment.time %>.
+            This Appointment is <%= appointment.flexible ? 'flexible' : 'not flexible' %>.
+
+      </li>
+      <% }) %>
+  </ul>
+</section>
+</section>
