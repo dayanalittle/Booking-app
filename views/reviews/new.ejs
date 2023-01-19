@@ -2,16 +2,14 @@
 <link rel="stylesheet" href="/stylesheets/style.css" />
 <%- include('../partials/nav') %>
 
+<% if (user) { %>
+
  <h1>Reviews</h1>
-  <form 
-    id="add-review-form"action="/reviews"method="POST">
+ <section>
+  <form id="add-review-form"action="/reviews"method="POST">
   <label>
     Author:
-    <input type="text" name="author" autocomplete="off" placeholder="Anonoymous">
-  </label>
-  <label>
-    Author:
-    <input type="text" name="author" autocomplete="off" placeholder="Anonoymous">
+    <input type="text" name="author" autocomplete="off" placeholder="Your name here or Anonoymous">
   </label>
   <label for="service-select">Service:</label>
           <select name="service" id="service-select">
@@ -34,19 +32,7 @@
     <button type="submit">Add Review</button>
   </form>
 
-  <h2> Unavailable Appointments:</h2>
-  <ul>
-    <% appointments.forEach(appointment=> { %>
-      <li>
-
-        <a href="/appointments/<%= appointment._id %>">
-          <%= appointment.name %>
-        </a>
-        has an appointment on <%= appointment.date %> @ <%= appointment.time %>.
-            This Appointment is <%= appointment.flexible ? 'flexible' : 'not flexible' %>.
-
-      </li>
-      <% }) %>
-  </ul>
+   <% } %>
 </section>
-</section>
+  <h2> Reviews:</h2>
+  
