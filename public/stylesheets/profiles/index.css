@@ -1,0 +1,15 @@
+
+
+body {
+  background-image:url('https://i.imgur.com/hoakDoX.jpg');
+  background-repeat: no-repeat;
+  background-position:center;
+  background-attachment: fixed;
+  color: #100f0f;
+  font-family: system-ui, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 
+    'Helvetica Neue', sans-serif;
+  margin: 0;
+}
+
+
+
