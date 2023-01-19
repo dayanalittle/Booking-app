@@ -1,17 +1,17 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/style.css" />
-<%- include('../partials/nav') %>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <%- include('../partials/nav') %>
 
-<% if (user) { %>
+    <% if (user) { %>
 
- <h1>Reviews</h1>
- <section>
-  <form id="add-review-form"action="/reviews"method="POST">
-  <label>
-    Author:
-    <input type="text" name="author" autocomplete="off" placeholder="Your name here or Anonoymous">
-  </label>
-  <label for="service-select">Service:</label>
+      <h1>Reviews</h1>
+      <section>
+        <form id="add-review-form" action="/reviews" method="POST">
+          <label>
+            Author:
+            <input type="text" name="author" autocomplete="off" placeholder="Your name here or Anonoymous">
+          </label>
+          <label for="service-select">Service:</label>
           <select name="service" id="service-select">
             <option value="Men's Haircut">Men's Haircut</option>
             <option value="Women's Haircut">Women's Haircut</option>
@@ -19,20 +19,42 @@
             <option value="Beard Maintenance">Beard Maintenance</option>
             <option value="Nose/Ear Hair Removal(Wax)"> Nose/Ear Hair Removal</option>
           </select>
-    <label for="content-textarea">Review:</label>
-    <textarea name="content" id="content-textarea"></textarea>
-    <label for="rating-select">Rating:</label>
-    <select name="rating" id="rating-select">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5" selected>5</option>
-    </select>
-    <button type="submit">Add Review</button>
-  </form>
+          <label for="content-textarea">Review:</label>
+          <textarea name="content" id="content-textarea"></textarea>
+          <label for="rating-select">Rating:</label>
+          <select name="rating" id="rating-select">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5" selected>5</option>
+          </select>
+          <button type="submit">Add Review</button>
+        </form>
 
-   <% } %>
-</section>
-  <h2> Reviews:</h2>
-  
+        <% } %>
+      </section>
+      <h2> Reviews:</h2>
+
+      <% if (reviews.length) { %>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Review</th>
+              <th>Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% reviews.forEach(review => { %>
+              <tr>
+                <td><%= reviews.createdAt %></td>
+                <td><%= reviews.content %></td>
+                <td><%= reviews.rating %></td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      <% } else { %>
+        <h3>No Reviews Yet</h3>
+      <% } %>

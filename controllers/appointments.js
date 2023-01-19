@@ -49,22 +49,6 @@ function show(req, res) {
   })
 }
 
-function flipFlexible(req, res) {
-  Appointment.findById(req.params.id)
-  .then(appointment => { 
-    if (appointment.owner.equals(req.user.profile._id))
-    appointment.flexible = !!appointment.flexible
-    appointment.save()
-    .then(()=> {
-      res.redirect(`/appointments/${appointment._id}`)
-    })
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect('/appointments')
-  })
-}
-
 function edit(req, res) {
   Appointment.findById(req.params.id)
   .then(appointment => {
@@ -121,7 +105,6 @@ export {
   index,
   create,
   show,
-  flipFlexible,
   edit,
   update,
   deleteAppointment as delete,
