@@ -9,10 +9,10 @@
     <li>Phone Number: <a href="tel:phoneNumber"><%= appointment.phoneNumber%></a></li>
 
     <li>Location: <a href="https://www.google.com/maps/dir/39.9835136,-75.1632384/the+darcy+hotel/@39.4357474,-77.2097399,8z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x89b7b7c044c1f34d:0xc182fc169589c911!2m2!1d-77.0355924!2d38.9077785">The Darcy Hotel, DC</a></li>
-    <li>Date/Time: <%= appointment.date %> @ <%= appointment.time %></li>
+    <li>Date/Time: <%= new Date(appointment.date).toLocaleString([], {weekday: "long", month: 'short', day: 'numeric', year: 'numeric'}) %> @ <%= appointment.time %></li>
     <li>Services: <%= appointment.service %></li>
     <li>This appointment is <%= appointment.flexible ? 'flexible' : 'not flexible' %>.</li>
-    <li>Contact DayTheBarber:<a href="tel:2672657979">267-265-7979</a></li>
+    
       <% if (user) { %>
         <form 
           action="/appointments/<%= appointment._id %>/flip-flexible?_method=PATCH" 
@@ -33,6 +33,6 @@
     
   <% } %>
 </section>
-
+<div><li>Contact Day:<a href="tel:2672657979">267-265-7979</a></li></div>
 
 <%- include('../partials/footer') %>

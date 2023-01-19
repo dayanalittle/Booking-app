@@ -10,6 +10,17 @@
     >
   </div>
   <h1>It's <%= isSelf ? "you" : profile.name %>!</h1>
-</main>
+  <ul>
+
+    <li>Name: <%= profile.name %></li>
+    
+  </ul>
+  <% if ( isSelf ) { %>
+    
+    <li>Phone Number: <a href="tel:phoneNumber"><%= profile.phoneNumber%></a></li>
+    <button>Leave A Review</button>
+
+    <% } %>
+  </main>
 
 <%- include('../partials/footer') %>
