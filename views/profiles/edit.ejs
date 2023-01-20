@@ -1,0 +1,60 @@
+<!-- <%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <h1>Edit Profile</h1>
+  <form action="/profiles/<%= profile._id %>?_method=PUT" method="POST">
+    <label>
+      Name: 
+      <input 
+        type="text"
+        name="name" 
+        value="<%= profile.name %>" 
+        autocomplete="off"
+      >
+    </label>
+    <label>
+      Phone Number: 
+      <input 
+        type="tel:phoneNumber"
+        name="phoneNumber" 
+        value="<%= profile.phoneNumber %>" 
+        autocomplete="off"
+      >
+    </label>
+    <label>
+      Connect: 
+      <input 
+        type="text"
+        name="connect" 
+        value="<%= profile.connect %>" 
+        autocomplete="off"
+      >
+    </label>
+    <label>
+      Profession: 
+      <input 
+        type="text"
+        name="profession" 
+        value="<%= profile.profession %>" 
+        autocomplete="off"
+      >
+    </label>
+    <label>
+      Email: 
+      <input 
+        type="text"
+        name="email" 
+        value="<%= profile.email %>" 
+        autocomplete="off"
+      >
+    </label>
+
+
+
+    
+    <button type="submit">Edit</button>
+  </form>
+</section>
+
+<%- include('../partials/footer') %> -->

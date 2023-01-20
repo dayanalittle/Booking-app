@@ -6,7 +6,7 @@ function newReview(req, res) {
     .then(reviews => {
       res.render('reviews/new', {
         reviews,
-        title: "Reviews"
+        title: "Add Review"
       })
 
     }).catch(err => {

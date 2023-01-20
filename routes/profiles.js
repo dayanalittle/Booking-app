@@ -7,6 +7,8 @@ const router = Router()
 
 router.get('/', profilesCtrl.index)
 router.get('/:id', isLoggedIn, profilesCtrl.show)
+router.get('/:id/edit', isLoggedIn, profilesCtrl.edit)
+router.put('/:id', isLoggedIn, profilesCtrl.update)
 
 export {
   router
