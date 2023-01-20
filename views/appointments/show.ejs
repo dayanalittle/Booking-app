@@ -3,9 +3,11 @@
   <%- include('../partials/nav') %>
 
     <section>
+      <img src="https://i.imgur.com/5Zvh9RP.jpg" alt="Half-logo" id="halfLogo" />
+    </section>
+
+    <section>
       <ul>
-
-
         <li>Name: <%= appointment.owner.name %>
         </li>
         <li>Phone Number: <a href="tel:phoneNumber">
@@ -22,26 +24,34 @@
         <li>Service: <%= appointment.service %>
         </li>
         <li>This appointment is <%= appointment.flexible ? 'flexible' : 'not flexible' %>.</li>
-
-        <% if (user) { %>
-          <form action="/appointments/<%= appointment._id %>/flip-flexible?_method=PATCH" method="POST">
-      </ul>
+    </section>
+    <% if (user) { %>
+      <form action="/appointments/<%= appointment._id %>/flip-flexible?_method=PATCH" method="POST">
+        </ul>
 
       </form>
       <% } %>
+      
+      <div>
         <% if (appointment.owner.equals(user?.profile._id)) { %>
-
           <a href="/appointments/<%= appointment._id %>/edit">
-            <button class="btn defaultButton">Reschedule</button>
+            <button class="defaultButton">Reschedule</button>
           </a>
           <form action="/appointments/<%= appointment._id %>?_method=DELETE" method="POST">
-            <button class="btn defaultCancelButton" type="submit">Cancel</button>
+            <button class="defaultCancelButton" type="submit">Cancel</button>
           </form>
+        </div>
 
           <% } %>
-    </section>
-    <div>
-      <li>Contact Day:<a href="tel:2672657979">267-265-7979</a></li>
-    </div>
+            <section>
+              <section>
+                <h1>Connect with Dayana</h1>
+                <ul>
+                  <li> <a href="tel:2672657979">267-265-7979</a></li>
+                  <li><a href="">@Daythebarber</a></li>
+                  <a href="https://www.linkedin.com/in/dayanalittle/">LinkedIn</a></li>
+                </ul>
 
-    <%- include('../partials/footer') %>
+              </section>
+
+              <%- include('../partials/footer') %>

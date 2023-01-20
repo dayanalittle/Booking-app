@@ -1,0 +1,12 @@
+ul, h1 {
+  text-align: center;
+  list-style: none;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: row;
+ 
+}

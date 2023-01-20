@@ -4,14 +4,14 @@
   <%- include('../partials/nav') %>
 
     <section>
-      <img src="https://i.imgur.com/5Zvh9RP.jpg" alt="Half-logo" class="halfLogo" />
+      <img src="https://i.imgur.com/5Zvh9RP.jpg" alt="Half-logo" id="halfLogo" />
     </section>
 
     <main>
       <h1>Book Appointment:</h1>
       <% if (user) { %>
-        <form action="/appointments" method="POST" >
-<input type="text" name="name" autocomplete="off" placeholder="Name">
+        <form action="/appointments" method="POST">
+          <input type="text" name="name" autocomplete="off" placeholder="Name">
           <input type="text" name="phoneNumber" autocomplete="off" placeholder="Phone Number">
           <input type="date" name="date" data-placeholder="Date" required aria-required="true" class="indexDate" />
           <select name="time" id="time-select" placeholder="Time">
@@ -40,7 +40,7 @@
           <label for="author-select">Flexible?</label>
           <input type="checkbox" name="flexible" id="flexLabel">
           </label>
-          <button type="submit">Add Appointment</button>
+          <button type="submit" class="defaultButton">Add Appointment</button>
         </form>
         <% } %>
           <h2> Unavailable Appointments:</h2>
@@ -58,6 +58,7 @@
               </li>
               <% }) %>
           </ul>
+          
 
     </main>
 
