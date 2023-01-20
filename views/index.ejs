@@ -1,16 +1,26 @@
 <%- include('./partials/html-head') %>
-<%- include('./partials/nav') %>
+  <link rel="stylesheet" href="/stylesheets/profiles/index.css" />
 
-<main>
-  <h1>Hello <%= user ? user.profile.name : "" %></h1>
-  <% if (user?.profile.avatar) { %>
-    <div>
-      <img
-        src="<%= user.profile.avatar %>"
-        alt="<%= user.profile.name %> avatar"
-      />
-    </div>
-  <% } %>
-</main>
+  <%- include('./partials/nav') %>
 
-<%- include('./partials/footer') %>
+    <main class="profileIndex">
+
+      <div>
+        <img src="https://i.imgur.com/OaSCSsD.jpg" alt="JP" class="homeImages" />
+        <img src="https://i.imgur.com/enJ5n7u.jpg" alt="Josh" class="homeImages" />
+        <img src="https://i.imgur.com/fRzE6tt.jpg" alt="travis" class="homeImages" />
+
+      </div>
+      <div>
+        <img src="https://i.imgur.com/AHlt9GZ.jpg" alt="james" class="homeImages" />
+        <img src="https://i.imgur.com/eUnNoDm.jpg" alt="logo" class="homeImages" />
+        <img src="https://i.imgur.com/f3u3P8u.jpeg" alt="solo" class="homeImages" />
+      </div>
+      <div>
+        <img src="https://i.imgur.com/7RWBF1e.jpg" alt="abdullah" class="homeImages" />
+        <img src="https://i.imgur.com/kvr0Np8.jpg" alt="yo" class="homeImages" />
+        <img src="https://i.imgur.com/EVTcvvp.jpg" alt="kid" class="homeImages" />
+      </div>
+    </main>
+
+    <%- include('./partials/footer') %>

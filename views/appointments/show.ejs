@@ -26,10 +26,10 @@
   <% if (appointment.owner.equals(user?.profile._id)) { %>
     
     <a href="/appointments/<%= appointment._id %>/edit">
-      <button class="btn">Reschedule</button>
+      <button class="btn defaultButton">Reschedule</button>
     </a>
     <form action="/appointments/<%= appointment._id %>?_method=DELETE" method="POST">
-      <button class="btn" type="submit">Cancel</button>
+      <button class="btn defaultCancelButton" type="submit">Cancel</button>
     </form>
     
   <% } %>

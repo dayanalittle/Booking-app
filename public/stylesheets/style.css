@@ -27,9 +27,11 @@ nav {
   background-color:#6a6a68;
   color: #1a1a1a;
   display: flex;
+  justify-content: center;
   align-items: center;
   padding: 10px;
   min-height: 60px;
+  width: 100%;
 }
 
 main {
@@ -43,3 +45,38 @@ main {
   margin-left: auto;
 }
 
+.navButtons {
+  padding: 10px;
+  background-color: #6a6a68;
+  color: #fff;
+  border: none;
+  border-color: #6a6a68;
+  font-weight: bold;
+}
+
+.defaultButton {
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: blue;
+  color: #fff;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.defaultCancelButton {
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: red;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.centered {
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  flex-direction: column;
+}

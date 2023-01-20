@@ -1,10 +1,10 @@
 <%- include('../partials/html-head') %>
   <%- include('../partials/nav') %>
 
-    <section>
+    <main>
       <h1>Book with DayTheBarber</h1>
       <% if (user) { %>
-        <form action="/appointments" method="POST">
+        <form action="/appointments" method="POST" class="centered">
           <label>
             Name:
             <input type="text" name="name" autocomplete="off" value="<%= user.profile.name %>">
@@ -52,13 +52,14 @@
                 <a href="/appointments/<%= appointment._id %>">
                   <%= appointment.name %>
                 </a>
-                has an appointment on <%= new Date(appointment.date).toLocaleString([], {weekday: "long", month: 'short', day: 'numeric', year: 'numeric'}) %> @ <%= appointment.time %>.
+                has an appointment on <%= new Date(appointment.date).toLocaleString([], {weekday: "long" ,
+                  month: 'short' , day: 'numeric' , year: 'numeric' }) %> @ <%= appointment.time %>.
                     This Appointment is <%= appointment.flexible ? 'flexible' : 'not flexible' %>.
 
               </li>
               <% }) %>
           </ul>
-    </section>
-    </section>
+
+    </main>
 
     <%- include('../partials/footer') %>

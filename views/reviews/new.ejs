@@ -10,10 +10,12 @@
           <label for="author-select">Author:</label>
           <select name="author" id="author-select">
             <option value="<%= user.profile.name %>">
-              <%= user.profile.name %>
+            <%= user.profile.name %>
             </option>
-            <option value="Annonymously">Annonymous</option>
+            <option value="Anonymously">Anonymous</option>
           </select>
+          <label for="date-select">Service Date:</label>
+          <input type="date" name="date" id="date-input">
           </label>
           <label for="service-select">Service:</label>
           <select name="service" id="service-select">
@@ -44,7 +46,7 @@
         <table>
           <thead>
             <tr>
-              <th>Date</th>
+              <th>Date Created</th>
               <th>Author</th>
               <th>Service Date</th>
               <th>Service Received</th>
@@ -57,10 +59,13 @@
             <% reviews.forEach(review=> { %>
               <tr>
                 <td>
-                  <%= review.createdAt %>
+                  <%= new Date(review.createdAt).toLocaleString([], {month: 'numeric', day: 'numeric', year: 'numeric'}) %> 
                 </td>
                 <td>
                   <%= review.author %>
+                </td>
+                <td>
+                  <%= new Date(review.date).toLocaleString([], {month: 'numeric', day: 'numeric', year: 'numeric'}) %>
                 </td>
                 <td>
                   <%= review.content %>
