@@ -12,14 +12,8 @@ html {
 }
 
 body {
-  background-repeat: no-repeat;
-  background-position:center;
-  background-attachment: fixed;
-  
   color: #100f0f;
-  /* Use a system font, if none are available use any found sans-sarif font */
-  font-family: system-ui, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 
-    'Helvetica Neue', sans-serif;
+  font-family: 'Julius Sans One', sans-serif;
   margin: 0;
 }
 
@@ -32,6 +26,8 @@ nav {
   padding: 10px;
   min-height: 60px;
   width: 100%;
+
+  
 }
 
 main {
@@ -52,20 +48,30 @@ main {
   border: none;
   border-color: #6a6a68;
   font-weight: bold;
+  font-family: 'Julius Sans One', sans-serif;
+
 }
 
-.defaultButton {
+.navButtons:hover {
+  background-color: #fff;
+  border: 1px solid black;
+  color: #6a6a68;
+  ;
+  
+}
+
+.defaultButton,{
   padding: 10px;
   padding-left: 20px;
   padding-right: 20px;
-  background-color: blue;
+  background-color: rgb(101, 32, 179);
   color: #fff;
   border-radius: 10px;
   font-weight: bold;
 }
 
 .defaultCancelButton {
-  padding: 10px;
+  padding: 5px;
   padding-left: 20px;
   padding-right: 20px;
   background-color: red;

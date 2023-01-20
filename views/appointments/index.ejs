@@ -1,45 +1,44 @@
 <%- include('../partials/html-head') %>
+  <link rel="stylesheet" href="/stylesheets/appointments/index.css" />
+
   <%- include('../partials/nav') %>
 
+    <section>
+      <img src="https://i.imgur.com/5Zvh9RP.jpg" alt="Half-logo" class="halfLogo" />
+    </section>
+
     <main>
-      <h1>Book with DayTheBarber</h1>
+      <h1>Book Appointment:</h1>
       <% if (user) { %>
-        <form action="/appointments" method="POST" class="centered">
-          <label>
-            Name:
-            <input type="text" name="name" autocomplete="off" value="<%= user.profile.name %>">
-          </label>
-          <label>
-            Phone Number:
-            <input type="text" name="phoneNumber" autocomplete="off">
-          </label>
-          <label for="date-select">Date:</label>
-          <input type="date" name="date" id="date-input" required pattern="mm-dd-yyy">
-          <label for="time-select">Time:</label>
-          <select name="time" id="time-select">
-            <option value="8:00am">8:00am</option>
-            <option value="9:00am">9:00am</option>
-            <option value="10:00am">10:00am</option>
-            <option value="11:00am">11:00am</option>
-            <option value="12:00pm">12:00pm</option>
-            <option value="1:00pm">1:00pm</option>
-            <option value="2:00pm">2:00pm</option>
-            <option value="5:00pm">5:00pm</option>
-            <option value=">6:00pm">6:00pm</option>
-            <option value="7:00pm">7:00pm</option>
-            <option value="8:00pm">8:00pm</option>
-            <option value="9:00pm">9:00pm</option>
+        <form action="/appointments" method="POST" >
+<input type="text" name="name" autocomplete="off" placeholder="Name">
+          <input type="text" name="phoneNumber" autocomplete="off" placeholder="Phone Number">
+          <input type="date" name="date" data-placeholder="Date" required aria-required="true" class="indexDate" />
+          <select name="time" id="time-select" placeholder="Time">
+            <option value="Time">Time</option>
+            <option value="8:00am">8:00 am</option>
+            <option value="9:00am">9:00 am</option>
+            <option value="10:00am">10:00 am</option>
+            <option value="11:00am">11:00 am</option>
+            <option value="12:00pm">12:00 pm</option>
+            <option value="1:00pm">1:00 pm</option>
+            <option value="2:00pm">2:00 pm</option>
+            <option value="5:00pm">5:00 pm</option>
+            <option value=">6:00pm">6:00 pm</option>
+            <option value="7:00pm">7:00 pm</option>
+            <option value="8:00pm">8:00 pm</option>
+            <option value="9:00pm">9:00 pm</option>
           </select>
-          <label for="service-select">Service:</label>
           <select name="service" id="service-select">
+            <option value="Service">Service</option>
             <option value="Men's Haircut - $50.00">Men's Haircut</option>
             <option value="Women's Haircut - $45.00">Women's Haircut</option>
             <option value="Kid's Haircut - $30.00">Kid's Haircut</option>
             <option value="Beard Maintenance - $30.00">Beard Maintenance</option>
             <option value="Nose/Ear Hair Removal(Wax) - $25.00"> Nose/Ear Hair Removal</option>
           </select>
-          Flexible?
-          <input type="checkbox" name="flexible">
+          <label for="author-select">Flexible?</label>
+          <input type="checkbox" name="flexible" id="flexLabel">
           </label>
           <button type="submit">Add Appointment</button>
         </form>

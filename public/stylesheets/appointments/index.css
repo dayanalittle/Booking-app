@@ -1,0 +1,65 @@
+
+.halfLogo {
+  width: 50%;
+  height: 50%;
+  margin: auto;
+  position: center;
+  display: grid;
+
+
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+
+
+}
+
+input[type=text],
+select,
+.indexDate {
+  padding: 5px;
+  font-family: 'Julius Sans One', sans-serif;
+  margin: 5px 0;
+  border-radius: 5px;
+  border-width: 1px;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+
+}
+
+/* flexible */
+label {
+  padding: 5px;
+  margin: 0 auto;
+}
+
+main {
+  display: flex;
+  margin: auto;
+  position: center;
+  font-family: 'Julius Sans One', sans-serif;
+  margin: 0 auto;
+}
+
+input[type="date"]::before {
+  content: attr(data-placeholder);
+  width: 100%;
+  color: #999;
+}
+
+select {
+  color: #999;
+  border-width: 1px;
+}
+
+input[type="date"]:focus::before,
+input[type="date"]:valid::before {
+  display: none
+}
+
+button {
+
+}

@@ -1,39 +1,47 @@
 <%- include('../partials/html-head') %>
-<link rel="stylesheet" href="/stylesheets/appointments/show.css" />
-<%- include('../partials/nav') %>
+  <link rel="stylesheet" href="/stylesheets/appointments/show.css" />
+  <%- include('../partials/nav') %>
 
-<section>
-  <ul>
+    <section>
+      <ul>
 
-    
-    <li>Name: <%= appointment.owner.name %></li>
-    <li>Phone Number: <a href="tel:phoneNumber"><%= appointment.phoneNumber%></a></li>
-    <li>Appointment Location: <a href="https://www.google.com/maps/dir/39.9835136,-75.1632384/the+darcy+hotel/@39.4357474,-77.2097399,8z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x89b7b7c044c1f34d:0xc182fc169589c911!2m2!1d-77.0355924!2d38.9077785">The Darcy Hotel, DC</a></li>
-    <li>Appointment Date: <%= new Date(appointment.date).toLocaleString([], {weekday: "long", month: 'short', day: 'numeric', year: 'numeric'}) %></li>
-    <li>Appointment Time: <%= appointment.time %></li>
-    <li>Service: <%= appointment.service %></li>
-    <li>This appointment is <%= appointment.flexible ? 'flexible' : 'not flexible' %>.</li>
-    
-      <% if (user) { %>
-        <form 
-          action="/appointments/<%= appointment._id %>/flip-flexible?_method=PATCH" 
-          method="POST"
-        >
-  </ul>
-     
-    </form>
-  <% } %>
-  <% if (appointment.owner.equals(user?.profile._id)) { %>
-    
-    <a href="/appointments/<%= appointment._id %>/edit">
-      <button class="btn defaultButton">Reschedule</button>
-    </a>
-    <form action="/appointments/<%= appointment._id %>?_method=DELETE" method="POST">
-      <button class="btn defaultCancelButton" type="submit">Cancel</button>
-    </form>
-    
-  <% } %>
-</section>
-<div><li>Contact Day:<a href="tel:2672657979">267-265-7979</a></li></div>
 
-<%- include('../partials/footer') %>
+        <li>Name: <%= appointment.owner.name %>
+        </li>
+        <li>Phone Number: <a href="tel:phoneNumber">
+            <%= appointment.phoneNumber%>
+          </a></li>
+        <li>Appointment Location: <a
+            href="https://www.google.com/maps/dir/39.9835136,-75.1632384/the+darcy+hotel/@39.4357474,-77.2097399,8z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x89b7b7c044c1f34d:0xc182fc169589c911!2m2!1d-77.0355924!2d38.9077785">The
+            Darcy Hotel, DC</a></li>
+        <li>Appointment Date: <%= new Date(appointment.date).toLocaleString([], {weekday: "long" , month: 'short' ,
+            day: 'numeric' , year: 'numeric' }) %>
+        </li>
+        <li>Appointment Time: <%= appointment.time %>
+        </li>
+        <li>Service: <%= appointment.service %>
+        </li>
+        <li>This appointment is <%= appointment.flexible ? 'flexible' : 'not flexible' %>.</li>
+
+        <% if (user) { %>
+          <form action="/appointments/<%= appointment._id %>/flip-flexible?_method=PATCH" method="POST">
+      </ul>
+
+      </form>
+      <% } %>
+        <% if (appointment.owner.equals(user?.profile._id)) { %>
+
+          <a href="/appointments/<%= appointment._id %>/edit">
+            <button class="btn defaultButton">Reschedule</button>
+          </a>
+          <form action="/appointments/<%= appointment._id %>?_method=DELETE" method="POST">
+            <button class="btn defaultCancelButton" type="submit">Cancel</button>
+          </form>
+
+          <% } %>
+    </section>
+    <div>
+      <li>Contact Day:<a href="tel:2672657979">267-265-7979</a></li>
+    </div>
+
+    <%- include('../partials/footer') %>
