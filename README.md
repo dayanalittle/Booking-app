@@ -1,8 +1,8 @@
-# Booking Application!
+# Booking Application for DayTheBarber!
 
-![](https://i.imgur.com/FJ8xj5K.png)
+![](https://i.imgur.com/rGJbOkD.png)
 
-Connect Four is a browser based game that accepts two players as opponents. In the game, players take turns choosing an index on the game board to place their chip, starting from the bottom row. Once a column is chosen, the chip will slot into the lowest spaces in each column.
+Hello, my name is Dayana Little. I am a barber who serves the DMV, Tristate, and surrounding areas. For years, I couldn't find a booking application that had all the features I needed to successfully service all of my clients, so I created one! With this app my clients can create a profile by simply signing in using Google Auth. From there you can book, edit, reschedule, view, and leave reviews for appointments. 
 
 
 
@@ -30,11 +30,12 @@ Connect Four is a browser based game that accepts two players as opponents. In t
 - [ ] Admin View
 - [ ] Dark Mode
 - [ ] Comment Section
+- [ ] Choose Location
 
 
 
 
 
-### Play Connect Four [Planning Materials](https://trello.com/b/5NImcijS/booking-app-unit-2-project)
+### View [Planning Materials](https://trello.com/b/5NImcijS/booking-app-unit-2-project)
 
 
