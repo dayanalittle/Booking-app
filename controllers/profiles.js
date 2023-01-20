@@ -1,6 +1,7 @@
 import { Profile } from '../models/profile.js'
 
 function index(req, res) {
+  if (req.user) {
   Profile.find({})
   .then(profiles => {
     res.render('profiles/index', {
@@ -12,10 +13,13 @@ function index(req, res) {
     console.log(err)
     res.redirect('/')
   })
+} else{
+  res.redirect('/')
+}
 }
 
 function show(req, res) {
-  Profile.findById(req.params.id)
+    Profile.findById(req.params.id)
   .then(profile => {
     const isSelf = profile._id.equals(req.user.profile._id)
     res.render("profiles/show", {

@@ -6,13 +6,14 @@
 
       <h1>Reviews</h1>
       <section>
-        <form id="add-review-form" action="/reviews" method="POST">
+        <form id="add-review-form" action="/reviews/new-review" method="POST">
           <label for="author-select">Author:</label>
-             <select name="author" id="author-select">
-              <option value="<%= user.profile.name %>"><%= user.profile.name %></option>
-              <option value="Annonymously">Annonymous</option>
-             
-            </select>
+          <select name="author" id="author-select">
+            <option value="<%= user.profile.name %>">
+              <%= user.profile.name %>
+            </option>
+            <option value="Annonymously">Annonymous</option>
+          </select>
           </label>
           <label for="service-select">Service:</label>
           <select name="service" id="service-select">
@@ -39,25 +40,38 @@
       </section>
       <h2> Reviews:</h2>
 
-      <% if (reviews.length) { %>
+      <% if (reviews.length> 0) { %>
         <table>
           <thead>
             <tr>
-              <th>Date:<%= reviews.createdAt %></th>
+              <th>Date</th>
+              <th>Author</th>
+              <th>Service Date</th>
+              <th>Service Received</th>
               <th>Review</th>
               <th>Rating</th>
             </tr>
           </thead>
           <tbody>
-            <% reviews.forEach(review => { %>
+
+            <% reviews.forEach(review=> { %>
               <tr>
-                <td><%= reviews.createdAt %></td>
-                <td><%= reviews.content %></td>
-                <td><%= reviews.rating %></td>
+                <td>
+                  <%= review.createdAt %>
+                </td>
+                <td>
+                  <%= review.author %>
+                </td>
+                <td>
+                  <%= review.content %>
+                </td>
+                <td>
+                  <%= review.rating %>
+                </td>
               </tr>
-            <% }) %>
+              <% }) %>
           </tbody>
         </table>
-      <% } else { %>
-        <h3>No Reviews Yet</h3>
-      <% } %>
+        <% } else { %>
+          <h3>No Reviews Yet</h3>
+          <% } %>

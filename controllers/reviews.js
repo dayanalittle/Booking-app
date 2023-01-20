@@ -2,20 +2,24 @@ import { Review } from '../models/review.js'
 
 
 function newReview(req, res) {
-  Review.find({})
+  Review.find()
     .then(reviews => {
       res.render('reviews/new', {
         reviews,
-        title: "Add Review"
+        title: "Reviews"
       })
 
+    }).catch(err => {
+      console.log(err)
+      res.redirect('/')
     })
 }
 
 function create(req, res) {
   Review.create(req.body)
     .then(review => {
-      res.redirect('/')
+      review.save()
+      res.redirect('/reviews/new')
     })
     .catch(err => {
       console.log(err)

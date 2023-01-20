@@ -52,7 +52,7 @@
                 <a href="/appointments/<%= appointment._id %>">
                   <%= appointment.name %>
                 </a>
-                has an appointment on <%= appointment.date %> @ <%= appointment.time %>.
+                has an appointment on <%= new Date(appointment.date).toLocaleString([], {weekday: "long", month: 'short', day: 'numeric', year: 'numeric'}) %> @ <%= appointment.time %>.
                     This Appointment is <%= appointment.flexible ? 'flexible' : 'not flexible' %>.
 
               </li>

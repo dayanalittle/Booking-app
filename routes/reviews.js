@@ -6,7 +6,7 @@ const router = Router()
 
 
 router.get('/new', reviewsCtrl.new)
-router.post('/', isLoggedIn, reviewsCtrl.create)
+router.post('/new-review', isLoggedIn, reviewsCtrl.create)
 
 
 export {
