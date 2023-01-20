@@ -1,47 +1,49 @@
 <%- include('../partials/html-head') %>
-  <link rel="stylesheet" href="/stylesheets/style.css" />
+<link rel="stylesheet" href="/stylesheets/reviews/new.css">
+
   <%- include('../partials/nav') %>
+
+    <section>
+      <img src="https://i.imgur.com/5Zvh9RP.jpg" alt="Half-logo" id="halfLogo" />
+    </section>
 
     <% if (user) { %>
 
-      <h1>Reviews</h1>
-      <section>
-        <form id="add-review-form" action="/reviews/new-review" method="POST">
-          <label for="author-select">Author:</label>
-          <select name="author" id="author-select">
+      <main class="all-main">
+      <h2>Leave a review:</h2>
+        <form class="form-data" action="/reviews/new-review" method="POST">
+          <select name="author" id="author-select" placeholder="Author">
+            <option value="name">Author</option>
             <option value="<%= user.profile.name %>">
-            <%= user.profile.name %>
+              <%= user.profile.name %>
             </option>
             <option value="Anonymously">Anonymous</option>
           </select>
-          <label for="date-select">Service Date:</label>
-          <input type="date" name="date" id="date-input">
-          </label>
-          <label for="service-select">Service:</label>
-          <select name="service" id="service-select">
+          <input type="date" name="serviceDate" data-placeholder="Service Date" required aria-required="true" class="index-date" />
+
+          <select name="service" id="service-select" placeholder="Service">
+            <option value="Service">Service</option>
             <option value="Men's Haircut">Men's Haircut</option>
             <option value="Women's Haircut">Women's Haircut</option>
             <option value="Kid's Haircut">Kid's Haircut</option>
             <option value="Beard Maintenance">Beard Maintenance</option>
             <option value="Nose/Ear Hair Removal(Wax)"> Nose/Ear Hair Removal</option>
           </select>
-          <label for="content-textarea">Review:</label>
-          <textarea name="content" id="content-textarea"></textarea>
-          <label for="rating-select">Rating:</label>
-          <select name="rating" id="rating-select">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5" selected>5</option>
+         
+          <textarea name="content" id="content-textarea" placeholder="Thank you for your business. Plese leave a review here. "></textarea>
+         
+          <select name="string" id="rating-select">
+            <option value="1">1 - Never Coming Back</option>
+            <option value="2">2 - Finding A New Barber</option>
+            <option value="3">3 - One Foot Out The Door</option>
+            <option value="4">4 - She Can Do Better</option>
+            <option value="5" selected>5 - Excellent Service</option>
           </select>
-          <button type="submit">Add Review</button>
+          <button type="submit" class="defaultButton">Add Review</button>
         </form>
-
         <% } %>
-      </section>
-      <h2> Reviews:</h2>
-
+        <h1> Reviews:</h1>
+  
       <% if (reviews.length> 0) { %>
         <table>
           <thead>
@@ -59,13 +61,15 @@
             <% reviews.forEach(review=> { %>
               <tr>
                 <td>
-                  <%= new Date(review.createdAt).toLocaleString([], {month: 'numeric', day: 'numeric', year: 'numeric'}) %> 
+                  <%= new Date(review.createdAt).toLocaleString([], {month: 'numeric' , day: 'numeric' , year: 'numeric'
+                    }) %>
                 </td>
                 <td>
                   <%= review.author %>
                 </td>
                 <td>
-                  <%= new Date(review.date).toLocaleString([], {month: 'numeric', day: 'numeric', year: 'numeric'}) %>
+                  <%= new Date(review.Date).toLocaleString([], {month: 'numeric' , day: 'numeric' , year: 'numeric' })
+                    %>
                 </td>
                 <td>
                   <%= review.content %>
@@ -80,3 +84,7 @@
         <% } else { %>
           <h3>No Reviews Yet</h3>
           <% } %>
+        </main>
+
+
+    <%- include('../partials/footer') %>
