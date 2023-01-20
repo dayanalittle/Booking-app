@@ -22,6 +22,7 @@ Hello, my name is Dayana Little. I am a barber who serves the DMV, Tristate, and
 - Mongoose
 - Express
 - MongoDB
+- Imgur
 
 
 
@@ -31,6 +32,12 @@ Hello, my name is Dayana Little. I am a barber who serves the DMV, Tristate, and
 - [ ] Dark Mode
 - [ ] Comment Section
 - [ ] Choose Location
+
+
+## Credits
+- Google Fonts
+
+
 
 
 
