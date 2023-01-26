@@ -19,7 +19,7 @@
             </option>
             <option value="Anonymously">Anonymous</option>
           </select>
-          <input type="date" name="serviceDate" data-placeholder="Service Date" required aria-required="true" class="index-date" />
+          <input type="date" name="serviceDate" data-placeholder="Service Date" class="index-date" />
 
           <select name="service" id="service-select" placeholder="Service">
             <option value="Service">Service</option>
@@ -32,12 +32,12 @@
          
           <textarea name="content" id="content-textarea" placeholder="Thank you for your business. Plese leave a review here. "></textarea>
          
-          <select name="string" id="rating-select">
-            <option value="1">1 - Never Coming Back</option>
-            <option value="2">2 - Finding A New Barber</option>
-            <option value="3">3 - One Foot Out The Door</option>
-            <option value="4">4 - She Can Do Better</option>
-            <option value="5" selected>5 - Excellent Service</option>
+          <select name="rating" type="string" id="rating-select">
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
           </select>
           <button type="submit" class="defaultButton">Add Review</button>
         </form>
@@ -51,7 +51,7 @@
               <th>Date Created</th>
               <th>Author</th>
               <th>Service Date</th>
-              <th>Service Received</th>
+              <th>Service</th>
               <th>Review</th>
               <th>Rating</th>
             </tr>
@@ -61,15 +61,18 @@
             <% reviews.forEach(review=> { %>
               <tr>
                 <td>
-                  <%= new Date(review.createdAt).toLocaleString([], {month: 'numeric' , day: 'numeric' , year: 'numeric'
+                  <%= new Date(review.updatedAt).toLocaleString([], {month: 'numeric' , day: 'numeric' , year: 'numeric'
                     }) %>
                 </td>
                 <td>
                   <%= review.author %>
                 </td>
                 <td>
-                  <%= new Date(review.Date).toLocaleString([], {month: 'numeric' , day: 'numeric' , year: 'numeric' })
+                  <%= new Date(review.serviceDate).toLocaleString([], {month: 'numeric' , day: 'numeric' , year: 'numeric' })
                     %>
+                </td>
+                <td>
+                  <%= review.service %>
                 </td>
                 <td>
                   <%= review.content %>
